@@ -4,7 +4,7 @@
 set -e
 
 AWS_REGION="ap-northeast-1"
-AWS_ACCOUNT_ID="515310962190"
+AWS_ACCOUNT_ID="256014692341"
 ECR_URI="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com"
 TAG=$(git rev-parse --short HEAD 2>/dev/null || date +%s)
 
