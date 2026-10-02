@@ -15,7 +15,9 @@ pipeline {
 
         stage('Configure & Build') {
             steps {
-               withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws_cred', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')])
+               withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', 
+                                    credentialsId: 'aws_cred', 
+                                    secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')])
                {
                     sh """
                     # Setup Kubeconfig
