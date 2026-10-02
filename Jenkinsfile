@@ -34,7 +34,9 @@ pipeline {
         stage('Deploy to EKS') {
             steps {
                 // IMPORTANT: kubectl needs the AWS keys to authenticate with the EKS cluster
-                 withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws_cred', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')])
+                 withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', 
+                                      credentialsId: 'aws_cred', 
+                                      secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')])
                {
                     sh "kubectl apply -f Microservices/kubernetes-manifests"
                 }
@@ -43,7 +45,9 @@ pipeline {
 
         stage('Verify') {
             steps {
-                 withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws_cred', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')])
+                 withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', 
+                                      credentialsId: 'aws_cred', 
+                                      secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')])
                {
                     sh "kubectl get pods"
                 }
